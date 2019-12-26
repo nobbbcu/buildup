@@ -1,0 +1,6 @@
+.contents.row
+  .container
+    = form_with(model: @tweet, local: true) do |form|
+      %h3
+        今日の成果を共有しましょう！！
+      = render partial: "form", locals: { form: form }
