@@ -46,21 +46,6 @@ a {
   background: $gray;
 }
 
-.btn {
-    @include basePadding(8px 20px);
-    font-size: 14px;
-    border: 2px solid $accent;
-    color: $accent;
-    font-weight: bold;
-    text-align: center;
-    border-radius: 2px;
-    display: inline-block;
-  &:hover {
-    border-color: lighten($accent, 15%);
-    color: lighten($accent, 15%);
-  }
-}
-
 .title {
   font-weight: bold;
 }
@@ -103,5 +88,26 @@ footer {
 
   .search-btn {
     width: 10%;
+  }
+}
+
+.profile{
+  @include boxBase(20px 0, 30px);
+  border-bottom: 1px solid $gray;
+  box-shadow: 0 0 10px rgba($lightgray,0.2);
+  font-size: 25px;
+  i{
+    font-size: 50px;
+    vertical-align: middle;
+  }
+  .btn{
+    float: right;
+    @include btn;
+    font-size: 14px;
+    padding: 10px;
+    // border-radius: 5px;
+  }
+  p{
+    font-size: 18px;
   }
 }

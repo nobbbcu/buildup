@@ -45,10 +45,13 @@
       font-size: 1em;
       cursor: pointer;
       position: relative;
-      &:after {
-        content: '▼';
-        font-size: .7em;
-        margin-left: -4px;
+      .fa-user-circle{
+        vertical-align: middle;
+        font-size: 1.8em;
+        margin-right: 5px;
+      }
+      .fa-sort-down{
+        font-size: 1.4em;
       }
       &:hover ul {
         color: $accent;
@@ -60,9 +63,9 @@
       position: absolute;
       top: 46px;
       right: 0;
-      border-left: 2px solid #d8d8d8;
+      border-left: 1px solid #d8d8d8;
       border-right: 1px solid #d8d8d8;
-      // box-shadow: 1px 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 1px 2px 5px rgba(255,255,255,0.2);
       li {
         background-color: $lightgray;
         a {
