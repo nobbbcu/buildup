@@ -1,0 +1,107 @@
+
+@import url(http://fonts.googleapis.com/css?family=Unica+One);
+@import "setting";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "mixin";
+@import "color";
+@import "header";
+@import "form";
+@import "tweet";
+
+body,html {
+  height: 100%;
+  background-color: $lightgray;
+}
+
+body {
+  padding-top: 60px;
+}
+
+h1,h2,h3,h4,h5,h6,body {
+line-height: 1.57;
+  letter-spacing: 0.15em;
+  font-size: 16px;
+  color: white;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  &:hover {
+    color: $accent;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.ultra {
+  font-size: 2em !important;
+}
+
+::selection {
+  background: $gray;
+}
+
+.btn {
+    @include basePadding(8px 20px);
+    font-size: 14px;
+    border: 2px solid $accent;
+    color: $accent;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 2px;
+    display: inline-block;
+  &:hover {
+    border-color: lighten($accent, 15%);
+    color: lighten($accent, 15%);
+  }
+}
+
+.title {
+  font-weight: bold;
+}
+
+.title--big {
+  font-size: 1.5em;
+  font-weight: bold;
+  i {
+    font-style: italic;
+    font-size: 1.8em;
+  }
+}
+
+.comments {
+  padding: 5px;
+  margin-top: 15px;
+  a {
+    color: $accent2;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+footer {
+  @include boxBase;
+  color: $gray;
+  p {
+    text-align: center;
+  }
+}
+
+.search-form {
+  text-align: center;
+  padding-top: 32px;
+  .search-input {
+    width: 30%;
+    margin-right: 10px;
+  }
+
+  .search-btn {
+    width: 10%;
+  }
+}
