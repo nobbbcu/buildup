@@ -1,5 +1,5 @@
 .contents.row
-  .content_post{:style => "background-image: url(#{@tweet.image});"}
+  .content_post
     - if user_signed_in? && current_user.id == @tweet.user_id
       .more
         %span= image_tag 'arrow_top.png'
