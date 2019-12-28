@@ -13,7 +13,6 @@ class UsersController < ApplicationController
     redirect_to action: :show
   end
 
-
   private
   def user_params
     params.require(:user).permit(:image, :name, :email, :introduction)

@@ -5,38 +5,43 @@
   box-sizing: border-box;
   border: 1px solid $gray;
   border-radius: 5px;
-  .user_images{
+  .image_form{
     @include boxBase;
+    position: relative;
+    margin-top: 20px;
+    p{
+      margin-left: -8px;
+    }
+    .icon{
+      @include icon(140px);
+    }
     .fa-user-circle{
       font-size: 140px;
       margin-right: 10px;
-      position: relative;        
-      .fa-circle{
-        position: absolute;
-        font-size: 40px;
-        right: 15px;
-        bottom: 15px;
-        color: $accent;
-      }
-      .fa-plus{
-        position: absolute;
-        right: 22px;
-        bottom: 20px;
-        font-size: 30px;
-        color: whtie;
-        font-weight: bold;
-      }
     }
-  }
-  .tweet_images{
-    @include boxBase;
-    // margin-left: 10px;
-    .fa-images{
+    .fa-circle{
+      position: absolute;
+      font-size: 40px;
+      left: 98px;
+      bottom: 35px;
+      color: $accent;
+      z-index: 1;
+    }
+    .fa-plus{
+      position: absolute;
+      left: 105px;
+      bottom: 40px;
       font-size: 30px;
+      color: whtie;
+      font-weight: bold;
+      z-index: 2;
     }
   }
 }
-
+.tweet_images{
+  @include boxBase;
+  font-size: 25px;
+}
 .form {
   background: url(https://dl.dropboxusercontent.com/u/5840617/DeathtoStock_Wired3.jpg);
   background-size: cover;
@@ -70,8 +75,10 @@ form {
     background-color: $lightgray;
     color: white;
   }
-
   input[type="submit"] {
     @include btn;
+  }
+  .easy_login{
+    margin-top: 30px;
   }
 }

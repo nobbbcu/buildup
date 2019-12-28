@@ -2,14 +2,20 @@
   .container
     %h2 プロフィール編集
     = form_with(model: current_user, class: 'new_user', local: true) do |f|
-      .field.user_images
+      .image_form
         %p プロフィール画像
-        %i.fas.fa-user-circle
-          .image_form
-            %i.fas.fa-circle
-            = f.label :image do
-              %i.fas.fa-plus
-              = f.file_field :image, style: "display: none"
+        -if current_user.image.present?
+          =image_tag current_user.image.url, class: "icon"
+          %i.fas.fa-circle
+          = f.label :image do
+            %i.fas.fa-plus
+            = f.file_field :image, style: "display: none"
+        -else
+          %i.fas.fa-user-circle
+          %i.fas.fa-circle
+          = f.label :image do
+            %i.fas.fa-plus
+            = f.file_field :image, style: "display: none"
       .field
         = f.label :ニックネーム
         = f.text_field :name, autofocus: true, maxlength: "6"
