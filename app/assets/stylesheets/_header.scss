@@ -45,6 +45,9 @@
       font-size: 1em;
       cursor: pointer;
       position: relative;
+      .image{
+        @include icon;
+      }
       .fa-user-circle{
         vertical-align: middle;
         font-size: 1.8em;

@@ -19,3 +19,9 @@
     background-color: lighten($accent, 10%);
   }
 }
+
+@mixin icon($length: 30px){
+  height: $length;
+  width: $length;
+  border-radius: $length;
+}

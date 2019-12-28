@@ -16,21 +16,22 @@ div.contents.row {
     min-height: 150px;
     @include boxBase(20px 0 ,20px);
     position: relative;
-    // color: #fff;
-    // background-size: cover;
     border-radius: 10px;
     border: 1px solid $gray;
     box-shadow: 0 0 10px rgba($lightgray,0.2);
     cursor: pointer;
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 1;
-      border-radius: 3px;
+    // &:after {
+    //   content: '';
+    //   position: absolute;
+    //   top: 0;
+    //   bottom: 0;
+    //   left: 0;
+    //   right: 0;
+    //   z-index: 1;
+    //   border-radius: 3px;
+    // }
+    .image{
+      @include icon;
     }
     .more {
       position: absolute;
@@ -75,51 +76,44 @@ div.contents.row {
       }
     }
     p {
-      // position: absolute;
-      // min-height: 70px;
-      // left: 30px;
-      // right: 100px;
-      // top: 60px;
-      // margin: 0;
-      // width: 85%;
       font-size: 20px;
       z-index: 2;
       color: white;
-      // display: inline-block;
     }
     .like{
+      margin-top: 20px;
       z-index: 3;
       display: block;
+      color:white;
+      @include icon(20px);
       &:hover{
-        background-color: $accent;
+        background-color: lighten($lightgray, 20%);;
+        color: $accent;
         display: block;
+
       }
     }
 
     span.name {
-      // position: absolute;
-      // left: 30px;
-      // top: 30px;
-      // z-index: 2;
       font-size: 20px;
-      i{
-        font-size: 25px;
-        vertical-align: middle;
-      }
-      a {
-        display: block;
+      .link{
+        display: inline-block;
         color: white;
         &:hover {
           text-decoration: underline;
           color: white;
         }
       }
-      span {
-        float: left;
-        font-size: 9px;
-        display: block;
+      .fa-user-circle{
+        font-size: 25px;
+        vertical-align: middle;
       }
+    span {
+      float: left;
+      font-size: 9px;
+      display: block;
     }
+  }
   }
   .success {
     @include boxBase(20px 0 ,30px);
