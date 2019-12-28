@@ -11,4 +11,10 @@
   = simple_format(tweet.content)
   = image_tag tweet.image.url, class: "tweet_image" if tweet.image.present?
   .like
-    %i.far.fa-heart
+    -if user_signed_in? && current_user.already_liked?(tweet)
+      = link_to tweet_like_path(tweet_id: tweet.id, id: tweet.likes.first.id), method: :delete do
+        %i.fas.fa-heart
+    -else
+      = link_to tweet_likes_path(tweet), method: :post do
+        %i.far.fa-heart
+    = tweet.likes.count if tweet.likes.present?
