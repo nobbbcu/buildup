@@ -90,10 +90,11 @@ div.contents.row {
       z-index: 2;
       display: block;
       color:white;
-      &:hover{
+      .fa-heart:hover{
         color: $accent;
-        display: block;
-        
+      }
+      .fas{
+        color: #FF3366
       }
     }
     

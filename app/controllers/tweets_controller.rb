@@ -4,6 +4,7 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(15)
+    @like = Like.new
   end
 
   def about
@@ -16,6 +17,7 @@ class TweetsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @tweet.comments.includes(:user)
+    @like = Like.new
   end
 
   def create

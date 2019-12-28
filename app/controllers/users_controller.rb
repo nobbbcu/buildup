@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   def show
     user = User.find(params[:id])
-    @name = user.name
-    @introduction = user.introduction
+    @user = user
     @tweets = user.tweets.order("created_at DESC").page(params[:page]).per(15)
   end
 
