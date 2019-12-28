@@ -8,7 +8,11 @@
       .user_nav.grid-6
         %span
           -# =image_tag "default_icon.png", class: "icon"
-          %i.fas.fa-user-circle
+          -if current_user.image.present?
+            =image_tag current_user.image.url, class: "image"
+          -else
+            %i.fas.fa-user-circle
+
           = current_user.name
           %i.fas.fa-sort-down
 
@@ -21,6 +25,6 @@
         = link_to  "投稿する", "/tweets/new", class: "post"
     - else
       .grid-6
-        = link_to "Buildupとは", "#", class: 'post'
+        = link_to "About", about_tweets_path
         = link_to "ログイン", new_user_session_path, class: 'post'
         = link_to "新規登録", new_user_registration_path, class: 'post'

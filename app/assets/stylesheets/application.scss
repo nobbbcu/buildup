@@ -96,7 +96,10 @@ footer {
   border-bottom: 1px solid $gray;
   box-shadow: 0 0 10px rgba($lightgray,0.2);
   font-size: 25px;
-  i{
+  .image{
+    @include icon(100px);
+  }
+  .fa-user-circle{
     font-size: 50px;
     vertical-align: middle;
   }

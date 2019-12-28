@@ -1,6 +1,9 @@
 .contents.row
   .profile
-    %i.fas.fa-user-circle
+    -if current_user.image.present?
+      =image_tag current_user.image.url, class: "image"
+    -else
+      %i.fas.fa-user-circle
     = @name
     =link_to edit_user_path(current_user.id), class: "btn" do
       プロフィールを編集する 

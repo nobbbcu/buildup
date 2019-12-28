@@ -5,7 +5,7 @@
   box-sizing: border-box;
   border: 1px solid $gray;
   border-radius: 5px;
-  .images{
+  .user_images{
     @include boxBase;
     .fa-user-circle{
       font-size: 140px;
@@ -26,6 +26,13 @@
         color: whtie;
         font-weight: bold;
       }
+    }
+  }
+  .tweet_images{
+    @include boxBase;
+    // margin-left: 10px;
+    .fa-images{
+      font-size: 30px;
     }
   }
 }

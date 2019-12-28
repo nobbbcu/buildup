@@ -1,9 +1,12 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:edit, :show]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :about]
 
   def index
     @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(15)
+  end
+
+  def about
   end
 
   def new

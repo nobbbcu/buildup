@@ -1,8 +1,13 @@
 = link_to tweet_path(tweet.id) do
   .content_post.index
     %span.name
-      %i.fas.fa-user-circle
-      = tweet.user.name
+      -if tweet.user.image.present?
+        =image_tag tweet.user.image.url, class: "image"
+      -else
+        %i.fas.fa-user-circle
+      .link
+        = tweet.user.name
     = simple_format(tweet.content)
+    = image_tag tweet.image.url if tweet.image.present?
     .like
       %i.far.fa-heart
