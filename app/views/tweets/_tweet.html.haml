@@ -1,13 +1,14 @@
-= link_to tweet_path(tweet.id) do
-  .content_post.index
-    %span.name
-      -if tweet.user.image.present?
-        =image_tag tweet.user.image.url, class: "image"
-      -else
-        %i.fas.fa-user-circle
-      .link
-        = tweet.user.name
-    = simple_format(tweet.content)
-    = image_tag tweet.image.url if tweet.image.present?
-    .like
-      %i.far.fa-heart
+.content_post.index
+  = link_to tweet_path(tweet.id) do 
+    .divlink
+  =link_to user_path(tweet.user.id), class: "user_link" do
+    -if tweet.user.image.present?
+      =image_tag tweet.user.image.url, class: "icon_image"
+    -else
+      %i.fas.fa-user-circle
+    %p.user_link_name
+      = tweet.user.name
+  = simple_format(tweet.content)
+  = image_tag tweet.image.url, class: "tweet_image" if tweet.image.present?
+  .like
+    %i.far.fa-heart

@@ -1,5 +1,17 @@
 .contents.row
   .content_post
+    =link_to user_path(@tweet.user.id), class: "user_link" do
+      -if @tweet.user.image.present?
+        =image_tag @tweet.user.image.url, class: "icon_image"
+      -else
+        %i.fas.fa-user-circle
+      %p.user_link_name
+        = @tweet.user.name
+    = simple_format(@tweet.content)
+    = image_tag @tweet.image.url, class: "tweet_image" if @tweet.image.present?
+    .like
+      %i.far.fa-heart
+
     - if user_signed_in? && current_user.id == @tweet.user_id
       .more
         %span
@@ -9,11 +21,7 @@
             = link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get
           %li
             = link_to '削除', "/tweets/#{@tweet.id}", method: :delete
-    = simple_format(@tweet.content)
-    %span.name
-      %a{:href => "/users/#{@tweet.user.id}"}
-        %span 投稿者
-        = @tweet.user.name
+
   .container
     - if current_user
       = form_with(model: [@tweet, @comment], local: true, id: "new_comment") do |form|
@@ -31,3 +39,4 @@
               = link_to comment.user.name, "/users/#{comment.user_id}"
               ：
             = comment.content
+
