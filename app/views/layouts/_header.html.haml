@@ -7,13 +7,20 @@
     - if user_signed_in?
       .user_nav.grid-6
         %span
+          -# =image_tag "default_icon.png", class: "icon"
+          %i.fas.fa-user-circle
           = current_user.name
+          %i.fas.fa-sort-down
+
           %ul.user__info
             %li
-              = link_to "マイページ", "/users/#{current_user.id}"
+              = link_to "/users/#{current_user.id}" do
+                マイページ
+
               = link_to "ログアウト", destroy_user_session_path, method: :delete
         = link_to  "投稿する", "/tweets/new", class: "post"
     - else
       .grid-6
+        = link_to "Buildupとは", "#", class: 'post'
         = link_to "ログイン", new_user_session_path, class: 'post'
         = link_to "新規登録", new_user_registration_path, class: 'post'

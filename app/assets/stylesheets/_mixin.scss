@@ -8,3 +8,14 @@
 @mixin baseMargin($margin: 10px auto) {
   margin: $margin;
 }
+
+@mixin btn{
+  background-color: $accent;
+  border-radius: 20px;
+  color: #fff;
+  border: 0;
+  font-size: 18px;
+  &:hover {
+    background-color: lighten($accent, 10%);
+  }
+}

@@ -1,16 +1,8 @@
 = link_to tweet_path(tweet.id) do
   .content_post.index
     %span.name
-      %span image/
+      %i.fas.fa-user-circle
       = tweet.user.name
     = simple_format(tweet.content)
-    .more
-      -# %span= image_tag 'arrow_top.png'
-      -# %ul.more_list
-      -#   %li
-      -#     = link_to '詳細', tweet_path(tweet.id)
-      -#   - if user_signed_in? && current_user.id == tweet.user_id
-      -#     %li
-      -#       = link_to '編集', edit_tweet_path(tweet.id)
-      -#     %li
-      -#       = link_to '削除', tweet_path(tweet.id), method: :delete
+    .like
+      %i.far.fa-heart
