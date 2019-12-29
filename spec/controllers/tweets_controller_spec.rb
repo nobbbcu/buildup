@@ -115,6 +115,34 @@ describe TweetsController do
         expect(response).to redirect_to(new_user_session_path)
       end
     end
+  end
 
+  describe '#destroy' do
+
+    context 'log in' do
+      before do
+        login user
+      end
+
+      subject {
+        delete :destroy,
+        params: { id: tweet.id }
+      }
+      it 'Tweetモデルのレコードが1減るか' do
+        expect{ subject }.to change(Tweet, :count).by(0)
+      end
+
+      it 'indexビューにリダイレクトされるか' do
+        subject
+        expect(response).to redirect_to(root_path)
+      end
+    end
+
+    context 'not log in' do
+      it 'ログインページにリダイレクトさせるか' do
+        delete :destroy, params: {id: tweet.id}
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
   end
 end

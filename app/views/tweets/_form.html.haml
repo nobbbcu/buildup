@@ -1,7 +1,7 @@
 -# = form.text_field :image, placeholder: "Image Url"
-= form.text_area :content, placeholder: "text" , rows: "6"
+= form.text_area :content, placeholder: "取り組み内容を報告してみましょう！", id: "content", rows: "6"
 .tweet_images
   = form.label :image do
     %i.fas.fa-images
-    = form.file_field :image, style: "display: none"
+    = form.file_field :image, id: "image", style: "display: none"
 = form.submit "SEND"
