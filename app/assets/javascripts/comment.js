@@ -15,7 +15,7 @@ $(function(){
     $(".error").remove()
     if($("#comment_content").val()==""){
       var error_message = '<span class="error">メッセージを入力してください</span>';
-      $(".comment_form").after(error_message);
+      $(".form__submit").after(error_message);
       $('.form__submit').prop('disabled', false);
       return false;
     }else{

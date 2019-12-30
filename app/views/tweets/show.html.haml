@@ -9,8 +9,8 @@
         = @tweet.user.name
     = simple_format(@tweet.content)
     = image_tag @tweet.image.url, class: "tweet_image" if @tweet.image.present?
-    .like
-      %i.far.fa-heart
+    .like{id: "like_#{@tweet.id}"}
+      = render partial: "tweets/like", locals: { tweet: @tweet }
 
     - if user_signed_in? && current_user.id == @tweet.user_id
       .more
@@ -33,10 +33,9 @@
 
   .container
     - if current_user
-      .comment_form
-        = form_with(model: [@tweet, @comment], local: true, id: "new_comment") do |form|
-          = form.text_area :content, placeholder: "コメントする", rows: "2", id: "comment_content", class: "textbox"
-          = form.submit "SEND", class: "form__submit"
+      = form_with(model: [@tweet, @comment], local: true, id: "new_comment") do |form|
+        = form.text_area :content, placeholder: "コメントする", rows: "2", id: "comment_content", class: "textbox"
+        = form.submit "SEND", class: "form__submit"
     - else
       %strong
         %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
