@@ -4,14 +4,12 @@
     = form_with(model: current_user, class: 'new_user', local: true) do |f|
       .image_form
         %p プロフィール画像
-        -if current_user.image.present?
-          =image_tag current_user.image.url, class: "icon"
-          %i.fas.fa-circle
-          = f.label :image do
-            %i.fas.fa-plus
-            = f.file_field :image, style: "display: none"
-        -else
-          %i.fas.fa-user-circle
+        .icon_area
+          -if current_user.image.present?
+            =image_tag current_user.image.url, class: "icon"
+
+          -else
+            %i.fas.fa-user-circle.icon
           %i.fas.fa-circle
           = f.label :image do
             %i.fas.fa-plus

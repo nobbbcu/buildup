@@ -18,15 +18,25 @@
           %i.fas.fa-chevron-down
         %ul.more_list
           %li
-            = link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get
-          %li
-            = link_to '削除', "/tweets/#{@tweet.id}", method: :delete
+            = link_to '編集', "/tweets/#{@tweet.id}/edit", class: "li",  method: :get
+          %li{class: "li",id: "pre_destroy"} 
+            削除
+
+  - if user_signed_in? && current_user.id == @tweet.user_id
+    .destroy.container
+      %h1 ツイートを削除しますか？
+      %p この操作は取り消せません。
+      .buttons
+        %li{id: "cancel"} キャンセル
+        %li
+          = link_to "削除する", tweet_path, method: :delete
 
   .container
     - if current_user
-      = form_with(model: [@tweet, @comment], local: true, id: "new_comment") do |form|
-        = form.text_area :content, placeholder: "コメントする", rows: "2", class: "textbox"
-        = form.submit "SEND", class: "form__submit"
+      .comment_form
+        = form_with(model: [@tweet, @comment], local: true, id: "new_comment") do |form|
+          = form.text_area :content, placeholder: "コメントする", rows: "2", id: "comment_content", class: "textbox"
+          = form.submit "SEND", class: "form__submit"
     - else
       %strong
         %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
