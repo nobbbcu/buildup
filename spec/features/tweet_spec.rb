@@ -21,7 +21,7 @@ feature 'tweet', type: :feature do
       click_link('投稿する')
       expect(current_path).to eq new_tweet_path
       find('input[type="file"]', visible: false).click
-      attach_file 'image', "public/images/test_image.png", visible: false
+      attach_file 'tweet_image', "public/images/test_image.png", visible: false
       fill_in 'content', with: 'フィーチャスペックのテスト'
       find('input[type="submit"]').click
     }.to change(Tweet, :count).by(1)
