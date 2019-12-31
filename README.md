@@ -4,11 +4,9 @@
 筋トレの成果を画像つきで共有できるコミュニティサイトです。転職活動用のポートフォリオとして作成致しました。
 
 ## 本番環境
-<!-- https://morooka3.net/ -->
+http://18.177.251.157
 
 ログイン画面からテストユーザーでログインが可能です。
-
-開発環境はdevelopブランチにあります。
 
 ## 機能一覧、使用gemなど
 * ユーザー登録、ログイン機能 (device）
@@ -25,19 +23,14 @@
 * Ruby 2.5.1
 * Ruby on Rails 5.2.4.1
 * MYSQL 5.6.43
-* SASS
+* JavaScript/jQuery
+* Haml
+* SCSS
 * GitHub,Git
 * Rspec
-<!-- * AWS
-  * VPC
+* AWS
   * EC2
-  * ECS
-  * ECR 
-  * RDS for MySQL 
-  * ALB
-  * Route53
   * S3
-  * ACM -->
 
 ## テスト
 * Rspec
